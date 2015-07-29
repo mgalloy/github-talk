@@ -31,7 +31,16 @@
 \end{frame}
 
 \begin{frame}{Subversion at NCAR}
-CISL will stop hosting Subversion by Oct 1, 2016.
+CISL intends to stop hosting Subversion by Oct 1, 2016.
+
+\vspace{1em}
+
+Choices:
+  \begin{enumerate}
+    \item GitHub
+    \item internally hosted git
+  \end{enumerate}
+For me, the reason to switch to git was GitHub, but git is much more powerful (and esoteric) than Subversion.
 \end{frame}
 
 
@@ -49,20 +58,79 @@ CISL will stop hosting Subversion by Oct 1, 2016.
   \end{center}
 \end{frame}
 
-\subsection{Getting code}
+\begin{frame}{Terminology/concepts}
+  \begin{description}
+    \item[stage] put local files in the staging area, ready for the next commit
+    \item[commit] make a local commit
+    \item[hash] revision ``number'' of a commit
+    \item[remote] another git repo
+    \item[push/pull] transfer commits, tags, etc. between local repo and a remote
+  \end{description}
+\end{frame}
+
+\subsection{Normal workflow}
 \begin{frame}[fragile]
   \frametitle{Cloning a repo}
+To ``checkout'' an existing repo:
+  \begin{small}
   \begin{lstlisting}
 git clone https://github.com/ncar-mlso/comp-utilities.git
 git clone git@github.com:mgalloy/test.git
   \end{lstlisting}
+  \end{small}
+Keys make for less password typing.
 \end{frame}
 
-\subsection{Normal workflow}
+\begin{frame}[fragile]
+  \frametitle{Stage}
+After making a local change, stage the files you want to commit:
+  \begin{lstlisting}
+git add <filename>
+  \end{lstlisting}
+Check to see status:
+  \begin{lstlisting}
+git status
+  \end{lstlisting}
+Git status messages show useful commands!
+\end{frame}
 
 \subsection{Reverting changes}
+\begin{frame}[fragile]
+  \frametitle{Undo a local change}
+You have made a local change that you want to revert, but haven't committed yet:
+  \begin{lstlisting}
+git checkout -- <filename>
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{New commit that undoes existing commits}
+For example, to undo the last two commits:
+  \begin{lstlisting}
+git revert HEAD~2..HEAD
+  \end{lstlisting}
+Or to revert back to commit 0123456:
+  \begin{lstlisting}
+git revert 0123456..HEAD
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Revert existing commits}
+Undo last commit (but keep changes):
+  \begin{lstlisting}
+git reset --soft HEAD~1
+  \end{lstlisting}
+Completely remove last commit and changes:
+  \begin{lstlisting}
+git reset --hard HEAD~1
+  \end{lstlisting}
+These are problematic if the commits have been pushed to a remote.
+\end{frame}
 
 
+
+\subsection{Resources}
 \begin{frame}{Resources}
   \begin{itemize}
     \item Just starting
