@@ -1,2 +1,3 @@
-# github-talk
+### GitHub talk
+
 Talk about using GitHub/git
