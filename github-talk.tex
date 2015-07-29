@@ -95,6 +95,15 @@ Git status messages show useful commands!
 \end{frame}
 
 \begin{frame}[fragile]
+  \frametitle{Pull}
+Start out with getting new changes:
+  \begin{lstlisting}
+git pull origin master
+  \end{lstlisting}
+Technically, this is a fetch and merge.
+\end{frame}
+
+\begin{frame}[fragile]
   \frametitle{Commit and push}
 After staging, you are ready to commit:
   \begin{lstlisting}
@@ -123,13 +132,14 @@ $ git checkout 5176a3a
   \end{small}
 \end{frame}
 
-\begin{frame}[]
-  diff
-\end{frame}
 
 \subsection{Reverting changes}
 \begin{frame}[fragile]
   \frametitle{Undo a local change}
+Easy to find local changes:
+  \begin{lstlisting}
+git diff
+  \end{lstlisting}
 You have made a local change that you want to revert, but haven't committed yet:
   \begin{lstlisting}
 git checkout -- <filename>
@@ -161,14 +171,14 @@ git reset --hard HEAD~1
 These are problematic if the commits have been pushed to a remote.
 \end{frame}
 
-\begin{frame}[Other things you can do]
+\begin{frame}{Other things you can do}
   \begin{enumerate}
-    \item merge
     \item make a branch
     \item merge branches
     \item make a tag
     \item stash temporarily
     \item bisect
+    \item and many more\ldots
   \end{enumerate}
 \end{frame}
 
