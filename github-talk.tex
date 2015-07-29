@@ -94,6 +94,39 @@ git status
 Git status messages show useful commands!
 \end{frame}
 
+\begin{frame}[fragile]
+  \frametitle{Commit and push}
+After staging, you are ready to commit:
+  \begin{lstlisting}
+git commit
+  \end{lstlisting}
+And push to GitHub:
+  \begin{lstlisting}
+git push origin master
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Examine old commits}
+  \begin{small}
+  \begin{lstlisting}
+$ git log --oneline
+1dc418e Typo.
+3512d91 Breaking COMP_PARSE_TIME out of COMP_EXTRACT_TIME.
+ee7db9f Formatting.
+798f6d5 Formatting.
+01456d9 Basic top-level run.
+5176a3a Updating library routines.
+
+$ git checkout 5176a3a
+  \end{lstlisting}
+  \end{small}
+\end{frame}
+
+\begin{frame}[]
+  diff
+\end{frame}
+
 \subsection{Reverting changes}
 \begin{frame}[fragile]
   \frametitle{Undo a local change}
@@ -128,7 +161,16 @@ git reset --hard HEAD~1
 These are problematic if the commits have been pushed to a remote.
 \end{frame}
 
-
+\begin{frame}[Other things you can do]
+  \begin{enumerate}
+    \item merge
+    \item make a branch
+    \item merge branches
+    \item make a tag
+    \item stash temporarily
+    \item bisect
+  \end{enumerate}
+\end{frame}
 
 \subsection{Resources}
 \begin{frame}{Resources}
@@ -181,7 +223,7 @@ Sorry Linux! (The command line is better anyway.)
 \begin{frame}{Conclusion}
   \begin{enumerate}
     \item While git is more powerful than Subversion, you can use it like Subversion
-    \item GitHub provides an easy browser with social integration and other features such as issue tracker and wiki
+    \item GitHub provides an easy browser with social integration and other code management features such as an issue tracker and wiki
   \end{enumerate}
 \end{frame}
 
