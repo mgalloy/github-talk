@@ -3,10 +3,10 @@
 \usetheme{Boulder}
 
 
-\title{GitHub/git}
+\title{git and GitHub}
 \subtitle{Using GitHub at MLSO}
 \author{Michael D. Galloy}
-\institute[NCAR/MLSO]{NCAR/MLSO}
+\institute[NCAR/MLSO]{NCAR/HAO --- MLSO}
 
 \date{29 July 2015}
 
@@ -63,8 +63,8 @@ For me, the reason to switch to git was GitHub, but git is much more powerful (a
     \item[stage] put local files in the staging area, ready for the next commit
     \item[commit] make a local commit
     \item[hash] revision ``number'' of a commit
-    \item[remote] another git repo
-    \item[push/pull] transfer commits, tags, etc. between local repo and a remote
+    \item[remote] another git repo, such as {\em origin}
+    \item[push/fetch/pull] transfer commits, tags, etc. between local repo and a remote
   \end{description}
 \end{frame}
 
@@ -78,7 +78,11 @@ git clone https://github.com/ncar-mlso/comp-utilities.git
 git clone git@github.com:mgalloy/test.git
   \end{lstlisting}
   \end{small}
-Keys make for less password typing.
+The remote you clone from is typically called the {\em origin}.
+
+\vspace{1em}
+
+Upload your public key to GitHub --- keys make for less password typing. 
 \end{frame}
 
 \begin{frame}[fragile]
@@ -91,16 +95,7 @@ Check to see status:
   \begin{lstlisting}
 git status
   \end{lstlisting}
-Git status messages show useful commands!
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Pull}
-Start out with getting new changes:
-  \begin{lstlisting}
-git pull origin master
-  \end{lstlisting}
-Technically, this is a fetch and merge.
+Git status messages show useful commands (such as how to stage a file, un-stage a file, or discard changes to a file)!
 \end{frame}
 
 \begin{frame}[fragile]
@@ -113,6 +108,20 @@ And push to GitHub:
   \begin{lstlisting}
 git push origin master
   \end{lstlisting}
+Here, {\em origin} is the remote to push to and {\em master} is the branch to push to.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Pull}
+Get changes from another repo:
+  \begin{lstlisting}
+git pull origin master
+  \end{lstlisting}
+Technically, this is a fetch and a merge, but is convenient in the normal case.
+
+\vspace{1em}
+
+Do this before starting work.
 \end{frame}
 
 \begin{frame}[fragile]
@@ -139,8 +148,13 @@ $ git checkout 5176a3a
 Easy to find local changes:
   \begin{lstlisting}
 git diff
+git diff <filename>
   \end{lstlisting}
-You have made a local change that you want to revert, but haven't committed yet:
+Use {\tt --staged} to compare differences in staged files.
+
+\vspace{1em}
+
+If you have made a local change that you want to revert, but haven't committed yet:
   \begin{lstlisting}
 git checkout -- <filename>
   \end{lstlisting}
@@ -156,6 +170,7 @@ Or to revert back to commit 0123456:
   \begin{lstlisting}
 git revert 0123456..HEAD
   \end{lstlisting}
+These commands create a new ``inverse'' commit.
 \end{frame}
 
 \begin{frame}[fragile]
@@ -185,12 +200,12 @@ These are problematic if the commits have been pushed to a remote.
 \subsection{Resources}
 \begin{frame}{Resources}
   \begin{itemize}
-    \item Just starting
+    \item Just starting:
       \begin{itemize}
         \item https://try.github.io/
         \item https://www.atlassian.com/git/tutorials/
       \end{itemize}
-    \item Full reference
+    \item Full reference:
       \begin{itemize}
         \item Pro Git book: http://git-scm.com/book
       \end{itemize}
@@ -201,6 +216,7 @@ These are problematic if the commits have been pushed to a remote.
 \subsection*{}
 
 \begin{frame}{Features}
+GitHub is a social code hosting site. It features:
   \begin{itemize}
     \item browsing files, commits, branches, tags, etc.
     \item issues tracker
