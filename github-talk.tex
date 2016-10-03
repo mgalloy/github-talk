@@ -30,19 +30,6 @@
   \tableofcontents
 \end{frame}
 
-\begin{frame}{Subversion at NCAR}
-CISL intends to stop hosting Subversion by Oct 1, 2016.
-
-\vspace{1em}
-
-Choices:
-  \begin{enumerate}
-    \item GitHub
-    \item internally hosted git
-  \end{enumerate}
-For me, the reason to switch to git was GitHub, but git is much more powerful (and esoteric) than Subversion.
-\end{frame}
-
 
 \section{git}
 
@@ -74,15 +61,19 @@ For me, the reason to switch to git was GitHub, but git is much more powerful (a
 To ``checkout'' an existing repo:
   \begin{small}
   \begin{lstlisting}
-git clone https://github.com/ncar-mlso/comp-utilities.git
-git clone git@github.com:mgalloy/test.git
+git clone https://github.com/ncar-mlso/comp-pipeline.git
   \end{lstlisting}
   \end{small}
 The remote you clone from is typically called the {\em origin}.
 
 \vspace{1em}
 
-Upload your public key to GitHub --- keys make for less password typing. 
+Upload your public key to GitHub --- keys make for less password typing.
+  \begin{small}
+  \begin{lstlisting}
+git clone git@github.com:ncar-mlso/comp-pipeline.git
+  \end{lstlisting}
+  \end{small}
 \end{frame}
 
 \begin{frame}[fragile]
